@@ -1,0 +1,75 @@
+.no-dialog-padding .ui-dialog-content {
+    border: none;
+    padding: 12px 6px 6px 6px;
+}
+
+.ui-dialog {
+    overflow: visible;
+}
+
+.ui-dialog .ui-dialog-buttonpanel {
+    margin: 2px;
+    padding: 0;
+}
+
+.label-txt {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+.label-txt-2 {
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.label-check2 {
+    display: block;
+    font-weight: bold;
+    height: 28px;
+    margin-top: 5px;
+}
+
+.check {
+    padding: 0 5px 0 0;
+    display: block;
+    clear: left;
+    float: left;
+}
+
+input.styled {
+    margin-top: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+}
+
+.input-txt {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+}
+
+textarea {
+    resize: none;
+}
+
+#dialog-message span, #dialog-message-role h4{
+    text-align: center;
+}
+
+.ui-selectmenu-text {
+    line-height: 1 !important;
+    padding-top: 5px !important;
+}
+
+.overflow-select {
+    height: 150px;
+}

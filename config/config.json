@@ -1,0 +1,23 @@
+{
+    "port": 8085,
+    "mongoose": {
+        "uri":"mongodb://localhost/hle",
+        "uri2":"mongodb://sysdba:masterkey@ds035348.mongolab.com:35348/hle",
+        "options" : {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 1
+                }
+            }
+        }
+    },
+    "session": {
+        "secret": "pharaon",
+        "key": "sid",
+        "cookie": {
+            "path": "/",
+            "httpOnly": true,
+            "maxAge": 3600000
+        }
+    }
+}

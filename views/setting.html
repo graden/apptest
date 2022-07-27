@@ -1,0 +1,97 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Помощник 4</title>
+  <link href="/ico/hle-icons.css" rel="stylesheet"/>
+  <link href="/w2ui-1.5/w2ui-1.5.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.css" />
+  <script src="/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="/w2ui-1.5/w2ui-1.5.min.js" type="text/javascript"></script>
+  <script src="/js/conf.js" type="text/javascript"></script>
+</head>
+<body> 
+    <div id="main" style="width: 100%; height: 100%;"></div>
+  <script>
+   w2utils.locale("ru-ru");
+   let pstyle = 'border: 1px solid #efefef;';
+   let config = conf();
+
+   $(function () {
+    $('#main').w2layout(config.layout);
+    w2ui.layout.html('left', $().w2sidebar(config.sidebar));
+    w2ui.layout.html('main', $().w2grid(config.users));
+    w2ui.layout.html('top', '<div style="padding: 12px 20px; background-color: #fff; color: #555; font-size: 18px;">CRM Помощник 4</div>');
+    $().w2grid(config.managers);
+    
+    w2ui.users.on('click', function(event) {
+      let grid = w2ui['users'];
+      event.onComplete = function () {
+        let sel = grid.getSelection();
+        if (sel.length == 1) {
+          grid.toolbar.enable('btnChgPassword');
+        } else {
+          grid.toolbar.disable('btnChgPassword');
+        }
+      } 
+    });
+    
+    w2ui.users.on('add', function(event) {
+      popupUserForm({title:'Регистрация нового пользователя'});
+      let grid = w2ui.users;
+      let form = w2ui.foo;
+      event.onComplete = function () {
+        form.clear();
+        form.record.METHOD = 'add';
+        $.get('/listRoles', function(data) {
+          form.set('ROLE', {options : {items: data}});
+        });
+        form.refresh();
+      }
+    });
+    
+    w2ui.users.on('edit', function(event) {
+      popupUserForm({title:'Редактирование данный пользователя'});
+      let grid = w2ui.users;
+      let form = w2ui.foo;
+      event.onComplete = function () {
+        let sel = grid.getSelection();
+        form.ID  = sel[0];
+        form.record = $.extend(true, {}, grid.get(sel[0]));
+        form.record.METHOD = 'edit';
+        $.get('/listRoles', function(data) {
+          form.set('ROLE', {options : {items: data}});
+        });
+        form.refresh();
+      }
+    });
+
+    function popupUserForm(data) {
+      if (!w2ui.foo) {
+        $().w2form(config.formEdit);
+      }
+      w2popup.open({
+        title   : data.title,
+        body    : '<div id="form" style="width: 100%; height: 100%;"></div>',
+        style   : 'padding: 0px 0px 0px 0px',
+        width   : 500,
+        height  : 280,
+        showMax : false,
+        modal   : true,
+        onToggle: function (event) {
+            $(w2ui.foo.box).hide();
+            event.onComplete = function () {
+                $(w2ui.foo.box).show();
+                w2ui.foo.resize();
+            }
+        },
+        onOpen: function (event) {
+            event.onComplete = function () {
+                $('#w2ui-popup #form').w2render('foo');
+            }
+        }
+      });
+    }
+  });
+
+  </script>
+</body>
+</html>

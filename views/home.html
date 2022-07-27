@@ -1,0 +1,28 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Помощник 4</title>
+  <link href="/w2ui-1.5/w2ui-1.5.min.css" rel="stylesheet"/>
+  <script src="/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="/w2ui-1.5/w2ui-1.5.min.js" type="text/javascript"></script>
+</head>
+<body> 
+    <h1>Список пользователей</h1>
+    <div id="lstUsers" style="height: 300px; width: 600px;">
+  <script>
+    $(function () {
+      w2utils.locale('ru-ru');
+      $('#lstUsers').w2grid({
+        name : 'myGrid',
+        url : '/listUsers',
+        columns: [
+          { field: 'ID', text: 'ID', size: '5%' },
+          { field: 'FULLNAME', text: 'Имя пользователя', size: '30%' },
+          { field: 'USERNAME', text: 'Логин', size: '20%' },
+          { field: 'REGDATE', text: 'Регистрация', size: '20%',  render: 'datetime:dd.mm.yyyy|hh:mi' },
+          { field: 'ROLE', text: 'Роль', size: '5%' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

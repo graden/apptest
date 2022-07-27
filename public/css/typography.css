@@ -1,0 +1,72 @@
+h1 {
+    color: #4d4d4d;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    text-shadow:-1px -1px 1px rgba(255,255,255,0.2), /* наверх и влево */
+                 1px 1px 1px rgba(255,255,255,0.2), /* вниз и вправо */
+                 1px 1px 1px rgba(0,0,0,0.7); /* тёмная тень */
+    letter-spacing: 2px;
+    font-weight: normal;
+    font-style: normal;
+    /*padding-top: 10px; */
+}
+h2 {
+    color: #6eb9cc;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+h3 {
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+h4 {
+    color: #1c94c4;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+h5 {
+    color: #eeeeee;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+h6 {
+    color: #4d4d4d;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 27px;
+    text-shadow:-1px -1px 1px rgba(255,255,255,0.2), /* наверх и влево */
+    1px 1px 1px rgba(255,255,255,0.2), /* вниз и вправо */
+    1px 1px 1px rgba(0,0,0,0.7); /* тёмная тень */
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 10px;
+}
+
+select, option {
+    color: #1c94c4;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 30px;
+    min-height: 1px;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+body{
+    font-size: 11px;
+}
+input, textarea{
+    border: 1px solid #b2b2b2;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
